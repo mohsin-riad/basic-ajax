@@ -1,0 +1,33 @@
+CREATE TABLE divisions(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255),
+);
+
+CREATE TABLE districts(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255),
+    description MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    div_id int,
+    FOREIGN KEY (div_id) REFERENCES divisions(id)
+);
+
+INSERT INTO divisions(name)
+VALUES 
+('chittagong'),
+('dhaka'),
+('sylhet'),
+('rajshahi'),
+('khulna');
+
+INSERT INTO districts(name, div_id)
+VALUES 
+('chattogram', 1),
+('coxsbazar', 1),
+('munsigonj', 2),
+('keranigonj', 2),
+('sreemongol', 3),
+('moulovibazar', 3),
+('tangail', 4),
+('dinajpur', 4),
+('bagherhat', 5),
+('jessor', 5);
